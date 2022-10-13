@@ -1,0 +1,24 @@
+{
+  "name": "rankapi",
+  "version": "1.0.0",
+  "description": "API for my project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisJacobi/rankAPI.git"
+  },
+  "author": "Chris Jacobi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisJacobi/rankAPI/issues"
+  },
+  "homepage": "https://github.com/ChrisJacobi/rankAPI#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}

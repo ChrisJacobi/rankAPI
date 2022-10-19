@@ -5,29 +5,17 @@ const app = express();
 const PORT = 80;
 const cors = require('cors');
 
+
+
 app.use(express.json());
-app.use(cors({
-    orgin: '*'
-}));
+app.use(cors({origin: '*'}));
+
 
 
 let id = 1;
-
-// Rank Entry Example
-const rankEntry = {
-    content: {
-        id: id,
-        topic: "My favorite cats",
-        1: "Calico",
-        2: "Tabby",
-        3: "Sphynx",
-        4: "Siamese",
-        5: "Maine Coon",
-        createdAt: new Date()
-    }
-};
-
-let entries = [];
+entries = [{
+    content: 'hi'
+}];
 
 app.get('/entries', (req, res) => {
     res.send(entries);
@@ -42,7 +30,7 @@ app.get('/:id', (req, res) => {
 app.post('/entry', (req, res) => {
     const entry = req.body;
     entry.id = id++;
-    entry.createdAt = new Date()
+    entry.createdAt = new Date();
     entries.push(entry);
     res.send(entry);
 });

@@ -6,7 +6,6 @@ const PORT = 80;
 const cors = require('cors');
 
 
-
 app.use(express.json());
 app.use(cors({origin: '*'}));
 
@@ -14,7 +13,7 @@ app.use(cors({origin: '*'}));
 
 let id = 1;
 entries = [{
-    content: 'hi'
+    content: ''
 }];
 
 app.get('/entries', (req, res) => {

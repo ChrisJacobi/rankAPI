@@ -25,7 +25,6 @@ const collection = database.collection('ranks');
 
 
 app.get('/entries', async (req, res) => {
-	console.log(req.body)
 	const entries = await collection.find().toArray()
 	res.send(entries)
 });
@@ -35,9 +34,7 @@ app.get('/entries', async (req, res) => {
 // });
 
 app.post('/entry', async (req, res) => {
-	console.log(req.body)
 	await collection.insertOne(req.body)
-	console.log(req.body)
 	res.send(req.body)  
 });
 

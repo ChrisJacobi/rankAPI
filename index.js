@@ -25,7 +25,7 @@ const collection = database.collection('ranks');
 
 
 app.get('/entries', async (req, res) => {
-	const entries = await collection.find().toArray()
+	const entries = await collection.find().sort({_id:-1}).toArray()
 	res.send(entries)
 });
 

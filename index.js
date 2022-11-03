@@ -13,7 +13,7 @@ app.use(cors({origin: '*'}));
 
 
 // MONGODB
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://RankProject:yVTkclkkmsyf4moh@cluster0.vbatj02.mongodb.net/?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -38,9 +38,11 @@ app.post('/entry', async (req, res) => {
 	res.send(req.body)  
 });
 
-// app.delete('/:id', (req, res) => { 
-//   
-// });   
+app.delete('/entry/:_id', async (req, res) => { 
+  const _id = ObjectId(req.params._id)
+  await collection.deleteOne({_id})
+  res.status(200).send({_id})
+});   
 
 client.connect().then(() => {
 	console.log('Connected to mondoDb')  

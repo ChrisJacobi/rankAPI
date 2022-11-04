@@ -29,9 +29,7 @@ app.get('/entries', async (req, res) => {
 	res.send(entries)
 });
 
-// app.get('/:id', (req, res) => {
-//    
-// });
+
 
 app.post('/entry', async (req, res) => {
 	await collection.insertOne(req.body)

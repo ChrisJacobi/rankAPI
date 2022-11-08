@@ -36,14 +36,14 @@ app.post('/post/rank', async (req, res) => {
 	res.send(req.body)  
 });
 
-app.delete('/post/:_id', async (req, res) => { 
+app.delete('/rank/:_id', async (req, res) => { 
   const _id = ObjectId(req.params._id)
   await collection.deleteOne({_id})
   res.status(200).send({_id})
 });   
 
 client.connect().then(() => {
-	console.log('Connected to mondoDb')  
+	console.log('Connected to mongoDb')  
 	app.listen(PORT, () => {
 		console.log(`App is listening at http://localhost:${PORT}`);
 	})

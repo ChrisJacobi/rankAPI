@@ -1,2 +1,2 @@
 # rankAPI
-API for my project
+API for my project 'Rank Bank'

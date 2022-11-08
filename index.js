@@ -24,19 +24,19 @@ const collection = database.collection('ranks');
 
 
 
-app.get('/entries', async (req, res) => {
+app.get('/ranks', async (req, res) => {
 	const entries = await collection.find().sort({_id:-1}).toArray()
 	res.send(entries)
 });
 
 
 
-app.post('/entry', async (req, res) => {
+app.post('/post/rank', async (req, res) => {
 	await collection.insertOne(req.body)
 	res.send(req.body)  
 });
 
-app.delete('/entry/:_id', async (req, res) => { 
+app.delete('/post/:_id', async (req, res) => { 
   const _id = ObjectId(req.params._id)
   await collection.deleteOne({_id})
   res.status(200).send({_id})

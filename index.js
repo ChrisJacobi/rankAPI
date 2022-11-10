@@ -25,11 +25,16 @@ const collection = database.collection('ranks');
 
 
 app.get('/ranks', async (req, res) => {
-	const entries = await collection.find().sort({_id:-1}).toArray()
-	res.send(entries)
+	const ranks = await collection.find().sort({_id:-1}).toArray()
+	res.send(ranks)
 });
 
-
+// app.get('/rank/:_id', async (req, res) => {
+// 	const _id = ObjectId(req.body._id)
+// 	const rank = await collection.find( { _id} ).toArray()
+// 	res.send(rank)
+// 	console.log(rank)
+// })
 
 app.post('/post/rank', async (req, res) => {
 	await collection.insertOne(req.body)

@@ -29,6 +29,11 @@ app.get('/ranks', async (req, res) => {
 	res.send(ranks)
 });
 
+app.get('/rank/:_id', async (req, res) => {
+	const _id = ObjectId(req.params._id)
+	const rank = await collection.find(_id).toArray()
+	res.send(rank)
+})
 
 app.post('/post/rank', async (req, res) => {
 	await collection.insertOne(req.body)
